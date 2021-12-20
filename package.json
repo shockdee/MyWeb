@@ -1,0 +1,17 @@
+{
+  "name": "myweb",
+  "version": "1.0.0",
+  "description": "my web for login and select courses use nodejs mongodb git",
+  "main": "MyWeb.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongodb",
+    "nodejs",
+    "git"
+  ],
+  "author": "shockdee",
+  "license": "GNU",
+  "git repository":"https://github.com/shockdee/MyWeb"
+}
