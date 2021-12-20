@@ -13,5 +13,9 @@
   ],
   "author": "shockdee",
   "license": "GNU",
-  "git repository":"https://github.com/shockdee/MyWeb"
+  "git repository": "https://github.com/shockdee/MyWeb",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.2"
+  }
 }
