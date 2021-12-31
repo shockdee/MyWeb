@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <!-- bootstrap框架 -->
+    <link rel="stylesheet" href="./bootstrap-4.4.1-dist/css/bootstrap.css">
+    <script src="./bootstrap-4.4.1-dist/jquery-3.0.0.min.js"></script>
+    <script src="./bootstrap-4.4.1-dist/popper.min.js"></script>
+    <script src="./bootstrap-4.4.1-dist/js/bootstrap.js"></script>
+</head>
+
+<div class="container">
+    <!-- 导航栏 -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">开源软件开发</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">${username==NULL?'未登录':username}</a>
+                        <c:if test="${username!=NULL}">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="MyInfo">我的信息</a>
+                                <a class="dropdown-item" href="updatepassword.jsp">更改密码</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="CancelAction">登出</a>
+                            </div>
+                        </c:if>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="SearchUser">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                        name="key">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <!-- 内容  -->
+        <div class="row" style="margin-top: 10px">
+            <div class="col-lg-3  ">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item list-group-item-action active">首页</a>
+                    <a href="login.html" class="list-group-item list-group-item-action active">用户登录</a>
+                    <a href="regist.html" class="list-group-item list-group-item-action active">用户注册</a>
+                    <a href="qn.html" class="list-group-item list-group-item-action active">问卷调查</a>
+                    <c:if test="${type!=null}">
+                        <a href="AllUser" class="list-group-item list-group-item-action active">用户列表</a>
+                        <a href="AllQn" class="list-group-item list-group-item-action active">调查结果</a>
+                    </c:if>
+                </div>
+            </div>
+            <div class="col-lg-7">
+				<div class="card">
+					<div class="card-header">问卷调查</div>
+					<div class="card-body">
+                        <script type="text/javascript">
+                            if(message){
+                                alert(message);
+                            }
+                        </script>
+						<form method="GET" action="regist" enctype="multipart/form-data">
+							<div class="form-group row">
+								<div class="col-3">
+									<label>用户名</label>
+								</div>
+								<div class="col-9">
+									<input type="text" name="username" class="form-control"
+										placeholder="用户名">
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-3">
+									<label>密码</label>
+								</div>
+								<div class="col-9">
+									<input type="text" name="password" class="form-control"
+										placeholder="密码">
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-3">
+									<label>性别</label>
+								</div>
+								<div class="col-9">
+									<div class="form-check form-check-inline col-4">
+										<input class="form-check-input" type="radio" name="sex" value="male"> <label class="form-check-label"
+											for="inlineRadio1">男</label>
+									</div>
+									<div class="form-check form-check-inline col-4">
+										<input class="form-check-input" type="radio" name="sex" value="female"> <label class="form-check-label"
+											for="inlineRadio2">女</label>
+									</div>
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary" onClick="rec()">注册</button>
+						</form>
+					</div>
+				</div>
+			</div>
+        </div>
+</div>
+</body>
+
+</html>

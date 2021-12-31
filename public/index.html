@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>首页</title>
+    <!-- bootstrap框架 -->
+    <link rel="stylesheet" href="./bootstrap-4.4.1-dist/css/bootstrap.css">
+    <script src="./bootstrap-4.4.1-dist/jquery-3.0.0.min.js"></script>
+    <script src="./bootstrap-4.4.1-dist/popper.min.js"></script>
+    <script src="./bootstrap-4.4.1-dist/js/bootstrap.js"></script>
 </head>
+
 <body>
-    
+    <div class="container">
+        <!-- 导航栏 -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">开源软件开发</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="#">Home
+                                <span class="sr-only">(current)</span>
+                            </a></li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" action="SearchUser">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                            name="key">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+            <!-- 内容  -->
+            <div class="row" style="margin-top: 10px">
+                <div class="col-lg-3  ">
+                    <div class="list-group">
+                        <a href="index.html" class="list-group-item list-group-item-action active">首页</a>
+                        <a href="login.html" class="list-group-item list-group-item-action active">用户登录</a>
+                        <a href="regist.html" class="list-group-item list-group-item-action active">用户注册</a>
+                        <a href="qn.html" class="list-group-item list-group-item-action active">问卷调查</a>
+                        <c:if test="${type!=null}">
+                            <a href="AllUser" class="list-group-item list-group-item-action active">用户列表</a>
+                            <a href="AllQn" class="list-group-item list-group-item-action active">调查结果</a>
+                        </c:if>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <a>计算机1班</a>
+                    <a>19010910823</a>
+                    <a>夏科迪</a>
+                    </a>
+                </div>
+            </div>
+    </div>
 </body>
+
 </html>

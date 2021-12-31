@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问卷调查</title>
+    <!-- bootstrap框架 -->
+    <link rel="stylesheet" href="./bootstrap-4.4.1-dist/css/bootstrap.css">
+    <script src="./bootstrap-4.4.1-dist/jquery-3.0.0.min.js"></script>
+    <script src="./bootstrap-4.4.1-dist/popper.min.js"></script>
+    <script src="./bootstrap-4.4.1-dist/js/bootstrap.js"></script>
+</head>
+
+<div class="container">
+    <!-- 导航栏 -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">开源软件开发</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">${username==NULL?'未登录':username}</a>
+                        <c:if test="${username!=NULL}">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="MyInfo">我的信息</a>
+                                <a class="dropdown-item" href="updatepassword.jsp">更改密码</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="CancelAction">登出</a>
+                            </div>
+                        </c:if>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="SearchUser">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                        name="key">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <!-- 内容  -->
+        <div class="row" style="margin-top: 10px">
+            <div class="col-lg-3  ">
+                <div class="list-group">
+                    <a href="index.html" class="list-group-item list-group-item-action active">首页</a>
+                    <a href="login.html" class="list-group-item list-group-item-action active">用户登录</a>
+                    <a href="regist.html" class="list-group-item list-group-item-action active">用户注册</a>
+                    <a href="qn.html" class="list-group-item list-group-item-action active">问卷调查</a>
+                    <c:if test="${type!=null}">
+                        <a href="AllUser" class="list-group-item list-group-item-action active">用户列表</a>
+                        <a href="AllQn" class="list-group-item list-group-item-action active">调查结果</a>
+                    </c:if>
+                </div>
+            </div>
+            <div class="col-lg-9">
+				<div class="card">
+					<div class="card-header">调查问卷</div>
+					<div class="card-body">
+						<form method="post" action="qnaction">
+							<div class="form-group row">
+								<div class="col-3">
+									<label>1.你每月花费多少钱？</label>
+								</div>
+								<div class="col-9">
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio1" name="Q1" value="1000以下"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio1">1000以下</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio2" name="Q1" value="1000-1500"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio2">1000-1500</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio3" name="Q1" value="1500-2000"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio3">1500-2000</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio4" name="Q1" value="2000以上"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio4">2000以上</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-3">
+									<label>2.你生活费的来源？</label>
+								</div>
+								<div class="col-9">
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio5" name="Q2" value="父母"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio5">父母</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio6" name="Q2" value="奖学金"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio6">奖学金</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio7" name="Q2" value="兼职"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio7">兼职</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio8" name="Q2" value="其他"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio8">其他</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-3">
+									<label>3.你的生活费够吗？</label>
+								</div>
+								<div class="col-9">
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio9" name="Q3" value="足够的，并且还有剩余"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio9">足够的，并且还有剩余</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio10" name="Q3" value="刚好合适"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio10">刚好合适</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio11" name="Q3" value="不够"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio11">不够</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-3">
+									<label>4.你怎样看待超前消费？</label>
+								</div>
+								<div class="col-9">
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio12" name="Q4" value="赞同，它会促使大学生努力工作"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio12">赞同，它会促使大学生努力工作</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio13" name="Q4" value="只要钱能还完就无所谓"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio13">只要钱能还完就无所谓</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio14" name="Q4" value="不同意，大学生在工作之前都处于欠款状态"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio14">不同意，大学生在工作之前都处于欠款状态</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-3">
+									<label>5.你的消费计划是什么？</label>
+								</div>
+								<div class="col-9">
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio15" name="Q5" value="计划好一切尽你所能花掉它"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio15">计划好一切尽你所能花掉它</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio16" name="Q5" value="想花多少花多少"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio16">想花多少花多少</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio17" name="Q5" value="边计划边消费"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio17">边计划边消费</label>
+									</div>
+									<div class="custom-control custom-radio">
+										<input type="radio" id="customRadio18" name="Q5" value="其他"
+											class="custom-control-input"> <label
+											class="custom-control-label" for="customRadio18">其他</label>
+									</div>
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary">完成问卷</button>
+						</form>
+					</div>
+				</div>
+			</div>
+        </div>
+</div>
+</body>
+
+</html>
