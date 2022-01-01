@@ -3,7 +3,7 @@ const app = express()
 const ejs = require("ejs")
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/190110910823');
+mongoose.connect('mongodb://172.21.2.236:27017/190110910823');
 const userschema = {
     Username: String,
     Password: String,
